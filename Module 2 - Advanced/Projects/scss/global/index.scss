@@ -1,2 +1,80 @@
 @use 'global';
-@use '../components/search'
+@use '../components/search';
+
+%result-box {
+    position: absolute;
+    background: white;
+    width: 100%;
+    top: 100%;
+    left: 0;
+}
+
+.search {
+    .nav-tabs .nav-item {
+        flex: 1;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    .tab-content {
+        img.icon {
+            width: 1rem;
+        }
+
+        #buy-search {
+            width: 100%;
+
+            .results {
+                @extend %result-box;
+
+                &:before {
+                    content: "Suggested locations";
+                }
+            }
+        }
+
+
+    }
+
+    .recent-search {
+        @extend %result-box;
+    }
+}
+
+.custom-carousel {
+    .owl-carousel {
+        .owl-stage {
+            padding-left: 0px !important;
+        }
+
+        .owl-dots {
+            display: none;
+        }
+
+        .owl-nav {
+            position: absolute;
+            top: 50%;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            transform: translate(0, -50%);
+
+            button {
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                border: 1px solid #d2d2d2;
+                cursor: pointer;
+                z-index: 1;
+                background: #fff;
+                font-size: 1.5rem;
+
+                &.disabled {
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+}
